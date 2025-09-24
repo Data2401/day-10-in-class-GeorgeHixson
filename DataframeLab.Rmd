@@ -31,14 +31,14 @@ Because you're in an RProject, you don't need to set your working directory in R
 
 ```{r}
 
-
+getwd()
 ```
 
 
 - Create a variable `org` that contains the `organization` column of the dataset
 
 ```{r}
-
+org <- grants$organization
 
 ```
 
@@ -46,7 +46,7 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Confirm that the "organization" column is a vector using the `is.vector()` function. (This is a useful debugging tip if you hit errors later!)
 
 ```{r}
-
+is.vector(grants$organization)
 
 ```
 
@@ -56,21 +56,21 @@ Now you can ask some interesting questions about the dataset:
 - What was the mean grant value?
 
 ```{r}
-
+mean(grants$total_amount)
 ```
 
 
 - What was the dollar amount of the largest grant?
 
 ```{r}
-
+max(grants$total_amount)
 ```
 
 
 - What was the dollar amount of the smallest grant?
 
 ```{r}
-
+min(grants$total_amount)
 ```
 
 
@@ -78,26 +78,26 @@ Now you can ask some interesting questions about the dataset:
 
 ```{r}
 
-
+grants[grants$total_amount == max(grants$total_amount), 'organization' ]
 ```
 
 
 - Which organization received the smallest grant?
 
 ```{r}
-
+grants[which.min(grants$total_amount), 'organization' ]
 ```
 
 - How many grants were awarded in 2010?
 
 ```{r}
-
+sum(grants$start_year == 2010)
 ```
 
 - How much was awarded in 2010? 
 
 ```{r}
-
+sum(grants$total_amount[start_year == 2010])
 ```
 
 
